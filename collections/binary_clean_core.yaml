@@ -1,0 +1,55 @@
+collection_id: binary_clean_core
+name: Core Clean Binary Classification
+description: Automatically generated collection of core clean binary classification
+  datasets from configuration criteria.
+selection_expression: task == 'classification' AND task_subtype == 'binary' AND missing_rate
+  <= 0.05 AND n_instances >= 500 AND n_instances <= 10000 AND n_features >= 5 AND
+  n_features <= 100
+selection_criteria:
+  all_of:
+  - field: task
+    op: ==
+    value: classification
+  - field: task_subtype
+    op: ==
+    value: binary
+  - field: missing_rate
+    op: <=
+    value: 0.05
+  - field: n_instances
+    op: '>='
+    value: 500
+  - field: n_instances
+    op: <=
+    value: 10000
+  - field: n_features
+    op: '>='
+    value: 5
+  - field: n_features
+    op: <=
+    value: 100
+preferred_sorting:
+- field: n_instances
+  order: asc
+output_fields:
+- dataset_id
+- name
+- task
+- task_subtype
+- target_variable
+- source_repository
+- source_id
+- n_instances
+- n_features
+- n_classes
+- missing_rate
+- imbalance_ratio
+- temporal
+- grouped
+- academic_usage
+- license
+- status
+curation:
+  version: '1.0'
+  author: Leonardo Dias
+  date: '2026-06-19'
