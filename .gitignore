@@ -28,3 +28,4 @@ exports/*
 !exports/.gitkeep
 collections/*.yaml
 !collections/sample_collection.yaml
+benchmark_framework.egg-info/
