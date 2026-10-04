@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "benchmark-framework"
+version = "0.1.0"
+description = "Declarative, validation-first ETL pipeline for ML benchmark datasets"
+readme = "readme.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Benchmark Framework Contributors" }]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "pyyaml>=6.0",
+    "openml>=0.14.2",
+    "pydantic>=2.0",
+    "xxhash>=3.0",
+    "duckdb>=0.10.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "ruff>=0.4",
+    "mypy>=1.10",
+    "pandas-stubs>=2.0",
+    "types-PyYAML>=6.0",
+    "pyarrow>=14.0",
+    "types-xxhash>=3.0",
+]
+parquet = ["pyarrow>=14.0"]
+
+[project.scripts]
+benchmark-framework = "pipeline.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/your-username/dataset-benchmark-framework"
+
+[tool.setuptools]
+packages = ["pipeline"]
+package-dir = { "" = "." }
+
+[tool.ruff]
+target-version = "py312"
+extend-exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "W", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["pipeline", "scripts", "tests"]
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_unused_configs = true
+show_error_codes = true
+mypy_path = "stubs"
+exclude = "stubs/"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

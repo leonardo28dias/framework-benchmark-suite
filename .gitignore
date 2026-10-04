@@ -1,0 +1,30 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Tooling caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Data & Output (Keep structural directories but ignore contents)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+catalog/datasets/*
+!catalog/datasets/.gitkeep
+catalog/*.csv
+manifests/*.yaml
+exports/*
+!exports/.gitkeep
+collections/*.yaml
+!collections/sample_collection.yaml

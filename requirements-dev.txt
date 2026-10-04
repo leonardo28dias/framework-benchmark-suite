@@ -1,0 +1,12 @@
+# Development and CI tooling, installed on top of requirements.txt.
+# pyarrow and duckdb power the optional Parquet export and the analytics demo.
+pytest>=7.4
+ruff>=0.4
+mypy>=1.10
+pandas-stubs>=2.0
+types-PyYAML>=6.0
+pyarrow>=14.0
+duckdb>=0.10.0
+pydantic>=2.0
+types-xxhash>=3.0
+
